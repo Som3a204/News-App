@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/constants/assets.dart';
 import 'package:news_app/modules/home/model/category_data_model.dart';
+import 'package:news_app/modules/home/pages/category_details_view.dart';
 import 'package:news_app/modules/home/pages/custom_drawer.dart';
 import 'package:news_app/modules/home/widgets/category_card_widget.dart';
 
@@ -107,7 +108,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
               )
-              : Text(selectedCategory!.id),
+              : CategoryDetailsView(categoryDataModel: selectedCategory!,),
     );
   }
 
