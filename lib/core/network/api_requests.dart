@@ -37,8 +37,9 @@ abstract class ApiRequests {
       var data = jsonDecode(response.body);
 
       ArticlesListData articlesListData = ArticlesListData.fromJson(data);
-      return articlesListData.articles ?? [];
+      return articlesListData.articles!;
     } else {
+      print(response.statusCode);
       throw Exception("Failed to load data");
     }
   }
