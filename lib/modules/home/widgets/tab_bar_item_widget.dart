@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/modules/home/model/source_data.dart';
 
-class TabBarItemWidget extends StatelessWidget {
+class TabBarItemWidget extends StatefulWidget {
   const TabBarItemWidget({
     super.key,
     required this.sourceData,
@@ -12,13 +12,18 @@ class TabBarItemWidget extends StatelessWidget {
   final bool isSelected;
 
   @override
+  State<TabBarItemWidget> createState() => _TabBarItemWidgetState();
+}
+
+class _TabBarItemWidgetState extends State<TabBarItemWidget> {
+  @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Text(
-      sourceData.name,
+      widget.sourceData.name,
       style: theme.textTheme.titleSmall!.copyWith(
-        fontSize: isSelected ? 16 : 14,
-        fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+        fontSize: widget.isSelected ? 16 : 14,
+        fontWeight: widget.isSelected ? FontWeight.w700 : FontWeight.w500,
       ),
     );
   }

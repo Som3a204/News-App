@@ -28,7 +28,7 @@ abstract class ApiRequests {
   static Future<List<Articles>> getArticles(String sourceId) async {
     Map<String, dynamic> queryParameters = {
       "apiKey": ApiConstants.apiKey,
-      "category": sourceId,
+      "sources": sourceId,
     };
     final response = await http.get(
       Uri.https(ApiConstants.baseUrl, Endpoints.getArticles, queryParameters),
