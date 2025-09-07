@@ -24,16 +24,25 @@ class ArticleItemWidget extends StatelessWidget {
             imageUrl: articles.urlToImage ?? "",
             imageBuilder:
                 (context, imageProvider) =>
-                    Container(height: 220, width: double.infinity),
+                    Container(height: 220, width: double.infinity,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(image: imageProvider)
+                      ),),
             placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) => Icon(Icons.error, size: 50),
           ),
           Text(
-            articles.source?.name ?? "",
+            articles.title ?? "",
             style: theme.textTheme.bodyLarge?.copyWith(color: Colors.black),
           ),
           Row(
             children: [
+              Text(
+                articles.source?.name ?? "",
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: Color(0xFFA0A0A0),
+                ),
+              ),
               Text(
                 articles.publishedAt ?? "",
                 style: theme.textTheme.bodyLarge?.copyWith(
