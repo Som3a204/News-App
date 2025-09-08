@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/core/theme/color_pallete.dart';
 import 'package:news_app/modules/home/model/articles_list_data.dart';
+import 'package:news_app/modules/home/view_model/settings_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ArticleItemWidget extends StatelessWidget {
@@ -11,6 +13,7 @@ class ArticleItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var settingProvider = Provider.of<SettingsProvider>(context);
     var theme = Theme.of(context);
     return InkWell(
       onTap: () {
@@ -21,7 +24,8 @@ class ArticleItemWidget extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.black),
+          border: Border.all(
+              color: settingProvider.isDark() ? Colors.white : Colors.black),
         ),
         child: Column(
           spacing: 10,
@@ -42,7 +46,9 @@ class ArticleItemWidget extends StatelessWidget {
             ),
             Text(
               articles.title ?? "",
-              style: theme.textTheme.bodyLarge?.copyWith(color: Colors.black),
+              style: theme.textTheme.bodyLarge?.copyWith(
+                  color: settingProvider.isDark() ? Colors.white : Colors
+                      .black),
             ),
             Row(
               children: [
