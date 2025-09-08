@@ -20,4 +20,6 @@ abstract class AppAssets {
   static const String homeIcn = "assets/icons/Home_Icon.png";
   static const String languageIcn = "assets/icons/Language_icon.png";
   static const String themeIcn = "assets/icons/Theme_icon.png";
+  static const String emptyListAnimation =
+      "assets/animations/Empty_Search.json";
 }

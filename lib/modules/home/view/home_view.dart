@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/constants/assets.dart';
+import 'package:news_app/core/routes/page_route_name.dart';
 import 'package:news_app/modules/home/view/category_details_view.dart';
 import 'package:news_app/modules/home/view/custom_drawer.dart';
 import 'package:news_app/modules/home/view_model/home_view_model.dart';
@@ -19,11 +20,15 @@ class HomeView extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               title: Text(provider.selectedCategory == null ? "Home" : provider
-                  .selectedCategory!.id),
+                  .selectedCategory!.title),
               actions: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: ImageIcon(AssetImage(AppAssets.searchIcn)),
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, PageRouteName.search);
+                      },
+                      child: ImageIcon(AssetImage(AppAssets.searchIcn))),
                 ),
               ],
             ),

@@ -11,6 +11,16 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsAnimationsGen {
+  const $AssetsAnimationsGen();
+
+  /// File path: assets/animations/Empty_Search.json
+  String get emptySearch => 'assets/animations/Empty_Search.json';
+
+  /// List of all assets
+  List<String> get values => [emptySearch];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -130,6 +140,7 @@ class $AssetsImagesGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsAnimationsGen animations = $AssetsAnimationsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

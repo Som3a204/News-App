@@ -43,4 +43,27 @@ abstract class ApiRequests {
       throw Exception("Failed to load data");
     }
   }
+
+
+  static Future<ArticlesListData> searchArticles(
+      {required String searchQuery, required int pageNumber}) async {
+    Map<String, dynamic> queryParameters = {
+      "apiKey": ApiConstants.apiKey,
+      "q": searchQuery,
+      "page": pageNumber.toString(),
+      "pageSize": "10"
+    };
+    final response = await http.get(
+      Uri.https(ApiConstants.baseUrl, Endpoints.getArticles, queryParameters),
+    );
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+
+      ArticlesListData articlesListData = ArticlesListData.fromJson(data);
+      return articlesListData;
+    } else {
+      print(response.statusCode);
+      throw Exception("Failed to load data");
+    }
+  }
 }

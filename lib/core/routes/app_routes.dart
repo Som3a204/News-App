@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/routes/page_route_name.dart';
 import 'package:news_app/modules/home/view/home_view.dart';
+import 'package:news_app/modules/search/search_view.dart';
 import 'package:news_app/modules/splash/splash_view.dart';
 
 abstract class AppRoutes {
@@ -14,6 +15,11 @@ abstract class AppRoutes {
       case PageRouteName.home:
         return MaterialPageRoute(
           builder: (BuildContext _) => HomeView(),
+          settings: settings,
+        );
+      case PageRouteName.search:
+        return MaterialPageRoute(
+          builder: (BuildContext _) => SearchView(),
           settings: settings,
         );
       default:
